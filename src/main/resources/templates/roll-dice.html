@@ -25,7 +25,7 @@
 <form action="/roll-dice" method="post"><input type="hidden" name="number" value = "6"> <button type="submit">6</button></form>
 <br>
 <br>
-<h1 th:if="${equals}">Your guess is:<span th:text="${guess}"></span> the actual number is:<span th:text="${actual}"> </span><span th:text="${equals}"></span></h1>
+<h1 th:if="${equals}">Your guess is: <span th:text="${guess}"></span></h1><h1> the actual number is: <span th:text="${actual}"></span></h1><h1><span th:text="${equals}"></span></h1>
 
 </body>
 </html>

@@ -20,9 +20,9 @@ public class DiceController {
         model.addAttribute("guess", number);
         model.addAttribute("actual", actual);
         if(number == actual){
-            model.addAttribute("equals", "Spot on");
+            model.addAttribute("equals", "Fuckn Spot on! >:0");
         }else{
-            model.addAttribute("equals", "Try again sucka");
+            model.addAttribute("equals", "Unlucky, Try again...");
         }
         return "/roll-dice";
     }
