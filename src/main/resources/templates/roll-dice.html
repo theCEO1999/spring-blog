@@ -5,7 +5,9 @@
 
 
 <body>
+<div>
 <h1>Guess the number the dice will roll</h1>
+</div>
 <ul th:replace="partials/partials.html :: bootstrap-nav">
 
 </ul>
@@ -44,6 +46,7 @@
 <br>
 <br>
 <h1 th:if="${equals}">Your guess is: <span th:text="${guess}"></span></h1><h1> the actual number is: <span th:text="${actual}"></span></h1><h1><span th:text="${equals}"></span></h1>
+<div th:replace="partials/partials.html :: footer-nav"></div>
 
 </body>
 </html>

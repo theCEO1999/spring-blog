@@ -2,4 +2,9 @@ body {
     background-color: black;
     color: deepskyblue;
 }
+h1 {
+    display: flex;
+    align-content: center;
+
+}
 
