@@ -20,7 +20,7 @@ public class DiceController {
         model.addAttribute("guess", number);
         model.addAttribute("actual", actual);
         if(number == actual){
-            model.addAttribute("equals", "Fuckn Spot on! >:0");
+            model.addAttribute("equals", "Spot on! >:0");
         }else{
             model.addAttribute("equals", "Unlucky, Try again...");
         }
