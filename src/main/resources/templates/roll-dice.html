@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="partials/partials.html" head (Dice Roll Game)>
-    <meta charset="UTF-8">
+<head th:replace="partials/partials.html :: head ('Dice Roll Game')">
 
-    <title>Dice Roll</title>
+
+    <meta charset="UTF-8">
 </head>
+
+
 <body>
 <h1>Guess the number the dice will roll</h1>
 <form action="/roll-dice" method="post"><input type="hidden" name="number" value = "1"> <button type="submit">1</button></form>
