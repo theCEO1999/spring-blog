@@ -1,30 +1,46 @@
 <!DOCTYPE html>
+<meta charset="UTF-8">
 <html xmlns:th="http://www.thymeleaf.org" lang="en">
-<head th:replace="partials/partials.html :: head ('Dice Roll Game')">
-
-
-    <meta charset="UTF-8">
-</head>
+<head th:replace="partials/partials.html :: head ('Dice Roll Game')"></head>
 
 
 <body>
 <h1>Guess the number the dice will roll</h1>
-<form action="/roll-dice" method="post"><input type="hidden" name="number" value = "1"> <button type="submit">1</button></form>
+<ul th:replace="partials/partials.html :: bootstrap-nav">
+
+</ul>
+<div class="container text-center">
+    <div class="row row-cols-6">
+        <div class="col"><form action="/roll-dice" method="post"><input type="hidden" name="number" value = "1"> <button type="submit">1</button></form>
+        </div>
+        <div class="col"><form action="/roll-dice" method="post"><input type="hidden" name="number" value = "2"> <button type="submit">2</button></form>
+        </div>
+        <div class="col"><form action="/roll-dice" method="post"><input type="hidden" name="number" value = "3"> <button type="submit">3</button></form>
+        </div>
+        <div class="col"><form action="/roll-dice" method="post"><input type="hidden" name="number" value = "4"> <button type="submit">4</button></form>
+        </div>
+        <div class="col"><form action="/roll-dice" method="post"><input type="hidden" name="number" value = "5"> <button type="submit">5</button></form>
+        </div>
+        <div class="col"><form action="/roll-dice" method="post"><input type="hidden" name="number" value = "6"> <button type="submit">6</button></form>
+        </div>
+    </div>
+</div>
+
 <br>
 
-<form action="/roll-dice" method="post"><input type="hidden" name="number" value = "2"> <button type="submit">2</button></form>
+
 <br>
 
-<form action="/roll-dice" method="post"><input type="hidden" name="number" value = "3"> <button type="submit">3</button></form>
+
 <br>
 
-<form action="/roll-dice" method="post"><input type="hidden" name="number" value = "4"> <button type="submit">4</button></form>
+
 <br>
 
-<form action="/roll-dice" method="post"><input type="hidden" name="number" value = "5"> <button type="submit">5</button></form>
+
 <br>
 
-<form action="/roll-dice" method="post"><input type="hidden" name="number" value = "6"> <button type="submit">6</button></form>
+
 <br>
 <br>
 <h1 th:if="${equals}">Your guess is: <span th:text="${guess}"></span></h1><h1> the actual number is: <span th:text="${actual}"></span></h1><h1><span th:text="${equals}"></span></h1>
