@@ -5,9 +5,20 @@
     <title>ad</title>
 </head>
 <body>
-    <nav>
-
-    </nav>
+<h2 th:unless="${selections}">Select your favored roast:</h2>
+<div th:if="${selections}">
+    <p>You selected: <span th:text="${selections.get(0).roast}"></span> roast!</p>
+    <p>Here are some options for you:</p>
+    <ul>
+        <li th:each="selection : ${selections}">
+            <p>
+                <span th:text="${selection.title}"></span>
+                <span th:text="${selection.body}"></span>
+            </p>
+        </li>
+    </ul>
+    <!--        <p>We have an amazing <span th:text="${selection.origin}"></span> <span th:text="${selection.roast}"></span> roast!</p>-->
+</div>
 
 </body>
 </html>
