@@ -2,6 +2,7 @@ package com.codeup.springblog.models;
 import javax.persistence.*;
 
 @Entity
+@Table (name = "Posts")
 public class Ad {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
