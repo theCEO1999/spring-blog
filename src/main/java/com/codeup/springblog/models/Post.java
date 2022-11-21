@@ -1,5 +1,7 @@
 package com.codeup.springblog.models;
 
+
+
 public class Post {
     public Post(Integer id, String title, String body) {
         Id = id;
