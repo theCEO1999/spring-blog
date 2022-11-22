@@ -11,6 +11,8 @@ public class Supplier {
 
     @Column(nullable = false)
     private String name;
+    @OneToMany(cascade = CascadeType.ALL)
+    private List<Coffee> coffees;
 
     public long getId() {
         return id;
