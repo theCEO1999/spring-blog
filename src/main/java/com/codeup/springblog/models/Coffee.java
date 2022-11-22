@@ -15,6 +15,8 @@ public class Coffee {
     private String origin;
     @Column(nullable = false, length = 100)
     private String brand;
+    @ManyToOne
+    private Supplier supplier;
 
     public Coffee() {
     }
