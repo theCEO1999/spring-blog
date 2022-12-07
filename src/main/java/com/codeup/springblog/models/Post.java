@@ -1,16 +1,30 @@
 package com.codeup.springblog.models;
 
-
 import javax.persistence.*;
+import java.awt.*;
+import java.util.List;
 
 @Entity
 @Table(name = "posts")
 public class Post {
 
-    public Post(Integer id, String title, String body) {
-        Id = id;
-        this.title = title;
-        this.body = body;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long Id;
+    @Column(nullable = false, length = 50)
+    private String title;
+    @Column(nullable = false, length = 500)
+    private String body;
+    @ManyToOne
+    @JoinColumn(name = "user_id")
+    private User user;
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 
     public long getId() {
@@ -20,9 +34,6 @@ public class Post {
     public void setId(Integer id) {
         Id = id;
     }
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long Id;
 
     public String getTitle() {
         return title;
@@ -39,10 +50,6 @@ public class Post {
     public void setBody(String body) {
         this.body = body;
     }
-    @Column(nullable = false, length = 50)
-    private String title;
-    @Column(nullable = false, length = 500)
-    private String body;
 
     public Post(){}
 
@@ -50,4 +57,24 @@ public class Post {
         this.title = title;
         this.body = body;
     }
+    public Post(Integer id, String title, String body) {
+        Id = id;
+        this.title = title;
+        this.body = body;
+    }
+
+    public Post(String title, String body, User user) {
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
+
+    public Post(long id, String title, String body, User user) {
+        Id = id;
+        this.title = title;
+        this.body = body;
+        this.user = user;
+    }
+
+
 }

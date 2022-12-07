@@ -1,16 +1,36 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>All Posts</title>
 </head>
 <body>
+<form th:action="@{/logout}" sec:authorize="isAuthenticated()"  th:method="post">
+    <button>Logout</button>
+</form>
+<form th:action="@{/login}" sec:authorize="!isAuthenticated()"  th:method="post">
+    <button>Login</button>
+</form>
 <h1>Your feed:</h1>
 <ul th:each="post : ${allPosts}">
     <li>
         <h2 th:text="${post.title}"></h2>
         <p th:text="${post.body}"></p>
+        <p sec:authorize="isAuthenticated()" th:if="${post.user.id} == ${#authentication.principal.id}">
+            <button th:data-id="${post.id}" class="editButton">Edit</button>
+<!--            <button th:data-id="${post.id}" class="deleteButton">Delete<input type="hidden" name="id" th:value="${post.getId()}">-->
+<!--            </button>-->
+        </p>
+        <form sec:authorize="isAuthenticated()" th:if="${post.user.id} == ${#authentication.principal.id}" action="/posts/delete">
+            <input type="hidden" name="id" th:value="${post.getId()}" th:data-id="${post.id}">
+            <button>Delete</button>
+        </form>
+
     </li>
 </ul>
+<script src="https://code.jquery.com/jquery-3.6.1.min.js" integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ=" crossorigin="anonymous"></script>
+<script src="/js/edit.js"></script>
+<!--<script src="/js/delete.js"></script>-->
+
 </body>
 </html>

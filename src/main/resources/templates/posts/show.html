@@ -1,13 +1,14 @@
 <!DOCTYPE html>
-<html html xmlns:th="http://www.thymeleaf.org" lang="en">
+<html html xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security" lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Show One Post</title>
 </head>
 <body>
     <div th:if="${post}">
-        <h2 th:text="${post.title}"> </h2>
-        <h3 th:text="${post.body}"></h3>
+        <h2 th:text="${post.title}"></h2>
+        <p th:text="${post.body}"></p>
+        <p th:text="${post.user.email}"></p>
     </div>
     <p th:unless="${post}">Could not find post</p>
 
